@@ -16,14 +16,14 @@ public class ObjectInputStreamClass implements Serializable {
 	}
 	public static void main(String... passengers) throws Exception {
 		try (ObjectOutputStream o = new ObjectOutputStream(
-				new FileOutputStream("ship.txt"))) {
+				new FileOutputStream("src/ocp/examples/file/ship.txt"))) {
 			ObjectInputStreamClass c = new ObjectInputStreamClass();
 			c.numPassengers = 4;
 			c.schedule = "Casino";
 			o.writeObject(c);
 		}
 		try (ObjectInputStream i = new ObjectInputStream(
-				new FileInputStream("ship.txt"))) {
+				new FileInputStream("src/ocp/examples/file/ship.txt"))) {
 			ObjectInputStreamClass c = (ObjectInputStreamClass)i.readObject();
 			System.out.print(c.numPassengers+","+c.schedule);
 		}
